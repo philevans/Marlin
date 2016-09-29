@@ -6120,21 +6120,22 @@ void quickstop_stepper() {
  */
 inline void gcode_M428() {
   bool err = false;
-  LOOP_XYZ(i) {
-    if (axis_homed[i]) {
-      float base = (current_position[i] > (sw_endstop_min[i] + sw_endstop_max[i]) * 0.5) ? base_home_pos(i) : 0,
-            diff = current_position[i] - LOGICAL_POSITION(base, i);
-      if (diff > -20 && diff < 20) {
-        set_home_offset((AxisEnum)i, home_offset[i] - diff);
-      }
-      else {
-        SERIAL_ERROR_START;
-        SERIAL_ERRORLNPGM(MSG_ERR_M428_TOO_FAR);
-        LCD_ALERTMESSAGEPGM("Err: Too far!");
-        BUZZ(200, 40);
-        err = true;
-        break;
-      }
+  uint8_t i = Z_AXIS;
+
+  if (axis_homed[i]) {
+    float base = (current_position[i] > (sw_endstop_min[i] + sw_endstop_max[i]) * 0.5) ? base_home_pos(i) : 0,
+          diff = current_position[i] - LOGICAL_POSITION(base, i);
+    if (diff > -20 && diff < 20) {
+      set_home_offset((AxisEnum)i, home_offset[i] - diff);
+    }
+    else {
+      SERIAL_ERROR_START;
+      SERIAL_ERRORLNPGM(MSG_ERR_M428_TOO_FAR);
+      
+      LCD_ALERTMESSAGEPGM("Err: Too far!");
+      BUZZ(200, 40);
+      err = true;
+      //break;
     }
   }
 

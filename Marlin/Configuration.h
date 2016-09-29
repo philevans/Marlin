@@ -732,7 +732,7 @@
 // For DELTA this is the top-center of the Cartesian print volume.
 #define MANUAL_X_HOME_POS (X_MIN_POS - 2)
 #define MANUAL_Y_HOME_POS (Y_MIN_POS - 2)
-#define MANUAL_Z_HOME_POS 201.16 // Distance between the nozzle to printbed after homing
+#define MANUAL_Z_HOME_POS 202 // Distance between the nozzle to printbed after homing
 
 // Use "Z Safe Homing" to avoid homing with a Z probe outside the bed area.
 //
@@ -1055,7 +1055,7 @@
 //
 // Add individual axis homing items (Home X, Home Y, and Home Z) to the LCD menu.
 //
-//#define INDIVIDUAL_AXIS_HOMING_MENU
+#define INDIVIDUAL_AXIS_HOMING_MENU
 
 //
 // SPEAKER/BUZZER

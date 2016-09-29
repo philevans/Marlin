@@ -59,6 +59,9 @@
 #ifndef MSG_AUTO_HOME
   #define MSG_AUTO_HOME                       "Auto home"
 #endif
+#ifndef MSG_RESET_HOME_OFFSETS
+  #define MSG_RESET_HOME_OFFSETS              "Reset home offsets"
+#endif
 #ifndef MSG_AUTO_HOME_X
   #define MSG_AUTO_HOME_X                     "Home X"
 #endif

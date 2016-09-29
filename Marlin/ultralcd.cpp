@@ -1193,6 +1193,11 @@ void kill_screen(const char* lcd_msg) {
     #endif
 
     //
+    // Reset offsets
+    //
+    MENU_ITEM(gcode, MSG_RESET_HOME_OFFSETS, PSTR("M206 X0 Y0 Z0"));
+
+    //
     // Set Home Offsets
     //
     MENU_ITEM(function, MSG_SET_HOME_OFFSETS, lcd_set_home_offsets);
